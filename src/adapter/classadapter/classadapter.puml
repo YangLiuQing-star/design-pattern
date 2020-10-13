@@ -1,0 +1,26 @@
+@startuml
+title 类适配器
+class Voltage220V{
+    output220V():void
+}
+
+interface IVoltage5V{
+    output5V():void
+}
+
+class VoltageAdapter
+
+VoltageAdapter --|> Voltage220V
+VoltageAdapter ..|> IVoltage5V
+
+class Phone{
+    charging():void
+}
+
+Phone ..> IVoltage5V
+
+class Client
+Client ..> Phone
+Client ..> VoltageAdapter
+
+@enduml

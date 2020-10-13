@@ -1,0 +1,22 @@
+@startuml
+title:动态代理
+class TeacherDao{
+    teach():void
+}
+
+class Client
+
+interface  ITeacherDao{
+    teach():void
+}
+
+TeacherDao ..|> ITeacherDao
+class ProxyFactory{
+    ProxyFactory()
+    getProxyInstance():Object
+}
+
+
+Client ..> ProxyFactory
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+interface Interface1
+
+class A
+class B
+
+class C
+class D
+
+B ..|> Interface1
+C ..|> Interface1
+
+A --> Interface1
+D --> Interface1
+@enduml
+

@@ -1,0 +1,18 @@
+@startuml
+title 接口适配器，适用于一个接口不想使用其所有方法的情况
+
+interface Interface{
+    operation():void
+    operation2():void
+    operation3():void
+}
+
+abstract class AbsAdapter
+note right:空实现了接口中的所有方法
+
+AbsAdapter ..|> Interface
+
+class A
+A ..> AbsAdapter
+
+@enduml

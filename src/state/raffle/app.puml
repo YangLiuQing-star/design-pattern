@@ -1,0 +1,30 @@
+@startuml
+
+interface State{
+    deduceMoney():void
+    raffle():boolean
+    dispensePrize():void
+}
+
+class NoRaffleState
+NoRaffleState ..|> State
+
+class CanRaffleState
+CanRaffleState ..|> State
+
+class DispensePrizeState
+DispensePrizeState ..|> State
+
+class DispenseOutState
+DispenseOutState ..|> State
+
+class Activity
+Activity -- NoRaffleState
+Activity -- CanRaffleState
+Activity -- DispensePrizeState
+Activity -- DispenseOutState
+
+class Client
+Client ..> Activity
+Client ..> State
+@enduml

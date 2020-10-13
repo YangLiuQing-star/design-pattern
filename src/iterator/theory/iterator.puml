@@ -1,0 +1,36 @@
+@startuml
+
+title:迭代器模式，统一遍历数组，集合等
+
+interface Iterator{
+    hasNext():boolean
+    next():E
+    remove():void
+}
+
+class ConcreteIterator
+
+ConcreteIterator ..|> Iterator
+
+interface Aggregate{
+    createIterator():Iterator
+}
+
+class ConcreteAggregate{
+    数组/
+}
+
+class ConcreteAggregate02{
+    集合
+}
+
+ConcreteAggregate ..|> Aggregate
+ConcreteAggregate02 ..|> Aggregate
+
+ConcreteAggregate  ..> ConcreteIterator
+ConcreteAggregate02  ..> ConcreteIterator
+
+class Client
+Client ..> Aggregate
+Client ..> Iterator
+@enduml

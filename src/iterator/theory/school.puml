@@ -1,0 +1,38 @@
+@startuml
+title:提供统一的接口，遍历对象
+
+class ComputerCollegeIterator
+class InfoCollegeIterator
+
+interface Iterator{
+    hasNext():boolean
+    next():E
+    remove():void
+}
+
+
+ComputerCollegeIterator ..|> Iterator
+InfoCollegeIterator ..|> Iterator
+Department --o ComputerCollegeIterator
+Department --o InfoCollegeIterator
+
+interface College{
+    createIterator():Iterator
+}
+note right:聚合接口
+
+class ComputerCollege
+class InfoCollege
+ComputerCollege ..|> College
+InfoCollege ..|> College
+
+Department --o InfoCollege
+Department --o ComputerCollege
+class OutputImpl
+note right:完成对所有学院的输出
+College --o OutputImpl
+class Client
+Client ..> OutputImpl
+Client ..> Iterator
+
+@enduml

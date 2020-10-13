@@ -1,0 +1,22 @@
+@startuml
+
+class Memento{
+    attack:int
+    def:int
+}
+
+class CareTaker{
+    memento:Memento
+}
+
+Memento --o CareTaker
+
+class GameRole{
+    createMemento():Memento
+    getStatueFromMemento():void
+}
+GameRole ..> Memento
+class Client
+Client ..> GameRole
+Client ..> Memento
+@enduml

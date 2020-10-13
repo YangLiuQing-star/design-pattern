@@ -1,0 +1,31 @@
+@startuml
+title:访问者模式
+abstract class Visitor{
+    operation():void
+    operation2():void
+}
+
+class ConcreteVisitor{
+
+}
+ConcreteVisitor --|> Visitor
+class Element{
+    accept(Visitor v):void
+}
+Element ..> Visitor
+class ConcreteElement{
+
+}
+ConcreteElement --|> Element
+
+class ObjectStructure{
+    element:Element
+}
+
+Element ..* ObjectStructure
+
+
+class Client
+Client ..> Visitor
+Client ..> ObjectStructure
+@enduml

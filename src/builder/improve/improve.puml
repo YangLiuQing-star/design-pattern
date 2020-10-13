@@ -1,0 +1,26 @@
+@startuml
+title:构建者模式，将产品与产品的构建过程分离
+class House
+
+abstract class HouseBuilder{
+    House house = new House();
+    void buildBasic();
+    void buildWalls();
+    void roofed();
+    void build();
+}
+House --* HouseBuilder
+class CommonHouse
+class HighBuilding
+CommonHouse --|> HouseBuilder
+HighBuilding --|> HouseBuilder
+class HouseDirector{
+    HouseBuilder houseBuilder;
+}
+
+HouseBuilder --o HouseDirector
+
+Client ..> HouseBuilder
+Client ..> CommonHouse
+Client ..> HighBuilding
+@enduml

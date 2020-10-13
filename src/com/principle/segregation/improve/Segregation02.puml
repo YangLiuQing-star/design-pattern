@@ -1,0 +1,20 @@
+@startuml
+interface Interface1
+interface Interface2
+interface Interface3
+
+class A
+class B
+class C
+class D
+
+B ..|> Interface1
+C ..|> Interface1
+
+A ..> Interface1
+A ..> Interface2
+D ..> Interface1
+D ..> Interface3
+
+@enduml
+

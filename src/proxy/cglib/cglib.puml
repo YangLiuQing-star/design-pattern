@@ -1,0 +1,18 @@
+@startuml
+title:Cglib
+class TeacherDao{
+    teacher():void
+}
+class ProxyFactory{
+    target object
+    ProxyFactory():void
+    getProxyInstance():Object//给目标对象创建一个代理对象
+    intercept():void //重写此方法，实现目标对象方法的调用
+}
+class MethodInterceptor
+
+ProxyFactory ..> MethodInterceptor
+class Client
+Client ..> ProxyFactory
+Client ..> MethodInterceptor
+@enduml

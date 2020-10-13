@@ -1,0 +1,23 @@
+@startuml
+title:静态代理
+class TeacherDao{
+    teach():void
+}
+
+class Client
+
+interface  ITeacherDao{
+    teach():void
+}
+
+TeacherDao ..|> ITeacherDao
+class TeacherDaoProxy{
+    teach():void
+}
+
+TeacherDaoProxy ..|> ITeacherDao
+
+TeacherDao --o TeacherDaoProxy
+Client ..> TeacherDaoProxy
+
+@enduml

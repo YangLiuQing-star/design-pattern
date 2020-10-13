@@ -1,0 +1,15 @@
+@startuml
+title:外观类，为调用端提供统一的调用接口，外观类知道哪些子系统负责处理请求，从而将调用端的请求代理给适当的子系统对象
+class 外观类
+class 子系统1
+class 子系统2
+class 子系统3
+
+
+子系统1 --o 外观类
+子系统2 --o 外观类
+子系统3 --o 外观类
+
+class Client
+Client --> 外观类
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+abstract class SoyMilk{
+    make():void
+    select():void
+    abstract add():void
+    soak():void
+    beat():void
+}
+note right:因为不同的豆浆配料不同，所以add方法为抽象方法
+
+class BlackBeanSoyMilk
+class PeanutSoyMilk
+
+BlackBeanSoyMilk --|> SoyMilk
+PeanutSoyMilk --|> SoyMilk
+
+class Client
+Client ..>  BlackBeanSoyMilk
+Client ..>  SoyMilk
+
+@enduml

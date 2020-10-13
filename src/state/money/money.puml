@@ -1,0 +1,26 @@
+@startuml
+
+interface State
+abstract class AbstractState
+note bottom:提供方法的默认实现
+
+AbstractState ..|> State
+class FeedBackState
+class PublishState
+
+FeedBackState --|> AbstractState
+PublishState --|> AbstractState
+
+class StateEnum
+
+FeedBackState --o StateEnum
+PublishState --o StateEnum
+class Context
+
+State --o Context
+
+class Client
+Client ..> State
+Client ..> Context
+
+@enduml

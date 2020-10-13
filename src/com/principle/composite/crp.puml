@@ -1,0 +1,56 @@
+@startuml
+title: 合成复用原则，使用依赖，聚合，组合的方式来代替继承，可以降低类与类之间的耦合性
+class A{
+    + void operation1();
+    + void operation2();
+    + void operation3();
+}
+class B
+note right : 如果我们只是让B使用A类，使用继承实现会增加A与B的耦合性
+
+A <|-- B
+
+newpage
+class A{
+    + void operation1();
+    + void operation2();
+    + void operation3();
+}
+
+class B{
+    + void oper(A a);
+}
+note right:使用依赖来完成B对A的使用
+
+A <.. B
+
+newpage
+class A{
+    + void operation1();
+    + void operation2();
+    + void operation3();
+}
+
+class B{
+    + A a;
+    + void setA(A a);
+}
+note right:使用聚合来完成B对A的使用
+
+A --o B
+
+newpage
+class A{
+    + void operation1();
+    + void operation2();
+    + void operation3();
+}
+
+class B{
+    + A a = new A();
+
+}
+note right:使用组合来完成B对A的使用
+
+A --* B
+@enduml

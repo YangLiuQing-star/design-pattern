@@ -1,0 +1,23 @@
+@startuml
+title:职责链模式
+abstract class Handler{
+    processRequest():void
+    success:Handler
+}
+note right:抽象的处理者，定义了一个处理请求的接口，同时又包含另外一个Handler
+
+class ConcreteHandlerA
+
+class ConcreteHandlerB
+note top: 具体的处理者，处理自己负责的请求，可以访问自己的后继者。如果自己能处理，就自己处理，否则，交给自己的后继者处理，从而形成职责链
+ConcreteHandlerA --|> Handler
+ConcreteHandlerB --|> Handler
+Handler --o Handler
+
+class Request
+note left:含有很多属性
+Request ..> Handler
+class Client
+Client ..> Request
+Client ..> Handler
+@enduml

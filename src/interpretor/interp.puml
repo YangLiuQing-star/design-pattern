@@ -1,0 +1,21 @@
+@startuml
+
+abstract class AbstractExpression{
+    interpret():void
+}
+note top:抽象表达式，声明一个抽象的解释操作，此抽象方法为抽象语法树中所有的结点所共享
+class TerminalExpression
+note left:为终结符表达式，为文法中相关的终结符实现解释操作
+class NoTerminalExpression
+note right:为非终结表达式，为文法中的非终结符实现解释操作
+TerminalExpression --|> AbstractExpression
+NoTerminalExpression --|> AbstractExpression
+AbstractExpression --o NoTerminalExpression
+
+class Context
+note bottom:环境角色，含有解释器之外的全局信息
+
+class Client
+Client ..> Context
+Client ..> AbstractExpression
+@enduml

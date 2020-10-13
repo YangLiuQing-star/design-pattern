@@ -1,0 +1,15 @@
+@startuml
+
+class Duck{
+    quack():void
+    swim():void
+    fly():void
+}
+
+class WildDuck
+class PeKingDuck
+class ToyDuck
+WildDuck --|> Duck
+PeKingDuck --|> Duck
+ToyDuck --|> Duck
+@enduml

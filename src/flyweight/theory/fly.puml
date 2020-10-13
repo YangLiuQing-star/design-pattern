@@ -1,0 +1,26 @@
+@startuml
+title:享元模式
+
+Abstract class WebSite{
+    use():void
+}
+
+class ConcreteWebSite{
+    use():void
+}
+
+class WebSiteFactory{
+    getWebSiteCategory():void
+}
+
+ConcreteWebSite --|> WebSite
+WebSite --o WebSiteFactory
+
+class Client
+Client ..> WebSiteFactory
+Client ..> ConcreteWebSite
+
+class User
+ConcreteWebSite ..> User
+Client ..> User
+@enduml

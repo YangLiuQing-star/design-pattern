@@ -1,0 +1,22 @@
+@startuml
+title:模板方法模式，template规定算法的骨架，具体的子类实现其它的一些抽象方法
+abstract class AbstractClass{
+    template():void//模板
+
+    operation1():void //抽象方法或者实现的方法
+    operation2():void//抽象方法或者实现的方法
+    operation3():void//抽象方法或者实现的方法
+}
+
+class ConcreteClass
+note right:实现抽象方法operation2,3,4，完成算法中特定子类的步骤
+
+class ConcreteClass2
+
+ConcreteClass ..|> AbstractClass
+ConcreteClass2 ..|> AbstractClass
+
+class Client
+Client ..> ConcreteClass
+
+@enduml

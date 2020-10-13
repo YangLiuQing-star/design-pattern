@@ -1,0 +1,27 @@
+@startuml
+interface Subject{
+    registerObserver(o Observer):void
+    removeObserver(o Observer):void
+    notifyObservers():void
+}
+class WeatherData{
+    observers:ArrayList
+}
+note right:包含天气信息，管理观察者
+
+WeatherData ..|> Subject
+
+Subject ..> Observer
+interface Observer{
+    update():void
+}
+
+Observer --o WeatherData
+
+class CurrentConditions
+CurrentConditions --|> Observer
+
+class Client
+Client ..> Subject
+Client ..> Observer
+@enduml

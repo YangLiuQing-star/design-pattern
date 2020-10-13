@@ -1,0 +1,30 @@
+@startuml
+interface Command{
+    execute():void
+    undo():void
+}
+note right:命令角色，需要执行的所有命令都在这里，可以是接口或者抽象类
+
+class ConcreteCommand{
+    execute():void
+    undo():void
+}
+note right:将一个接收者对象与一个动作绑定，调用接收者相应的操作，实现execute
+
+class Receiver{
+    action():void
+}
+note right:接收者，知道如何实施和执行一个请求相关的操作
+
+Receiver --o ConcreteCommand
+ConcreteCommand ..|> Command
+
+class Invoker
+note right:调用者
+Command --o Invoker
+
+class Client
+Client ..> Receiver
+Client ..> Invoker
+Client ..> ConcreteCommand
+@enduml

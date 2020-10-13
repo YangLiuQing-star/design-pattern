@@ -1,0 +1,44 @@
+@startuml
+
+together {
+    abstract class Pizza {
+        prepare():void
+        bake():void
+        cut():void
+        box():void
+    }
+
+    class LDChessPizza
+
+    class LDGreekPizza
+
+    class BJChessPizza
+
+    class BJGreekPizza
+}
+
+
+
+interface AbsFactory{
+    createPizza():Pizza
+}
+
+
+together {
+    abstract class OrderPizza
+    class BJFactory
+    class LDFactory
+}
+
+BJChessPizza --|> Pizza
+BJGreekPizza --|> Pizza
+LDChessPizza --|> Pizza
+LDGreekPizza --|> Pizza
+
+
+
+BJFactory --|> AbsFactory
+LDFactory --|> AbsFactory
+AbsFactory --o OrderPizza
+
+@enduml

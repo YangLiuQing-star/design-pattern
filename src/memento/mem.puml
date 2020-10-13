@@ -1,0 +1,21 @@
+@startuml
+title:备忘录设计模式
+class Originator
+note bottom:需要保存状态的对象
+class Memento{
+    state:String//表示状态
+}
+note bottom:备忘录对象，负责保存记录，即Originator的内部状态
+Originator ..> Memento
+
+class Caretaker{
+    mementos:ArrayList<Memento>
+}
+note bottom:守护者对象，以集合（例如：HashMap）的形式保存多个备忘录对象
+
+Memento --o Caretaker
+class Client
+
+Client ..> Originator
+Client ..> Memento
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+title: 类图
+
+class Person{
+    int id
+    String name
+
+    void getName();
+    void setName(String name);
+}
+@enduml

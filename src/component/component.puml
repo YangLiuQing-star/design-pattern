@@ -1,0 +1,23 @@
+@startuml
+
+abstract class OrganizationComponent{
+    add():void
+    remove():void
+    print():void
+}
+note right:抽象类或者接口
+
+class University
+class Department
+class Major
+class Client
+
+Department --|> OrganizationComponent
+University --|> OrganizationComponent
+Major --|> OrganizationComponent
+
+University --* Department
+Department --* Major
+Client ..> OrganizationComponent
+
+@enduml

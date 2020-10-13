@@ -1,0 +1,28 @@
+@startuml
+title:解释器模式
+abstract class Expression{
+    interpret():void
+}
+
+class VarExpresssion{
+
+}
+
+class SymbolExpression{
+
+}
+SymbolExpression --|> Expression
+VarExpresssion --|> Expression
+class SubExpression
+class AddExpression
+
+SubExpression --|> VarExpresssion
+AddExpression --|> VarExpresssion
+Expression --o SymbolExpression
+
+class Calculator
+
+Expression --o Calculator
+Class Client
+Client ..> Calculator
+@enduml

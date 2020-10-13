@@ -1,0 +1,10 @@
+@startuml
+title: 关联关系：描述类与类之间的联系，1对1,1对多，多对多的关系
+
+class Person{
+    + idCard : IDCard
+}
+class IDCard
+
+Person "1" --> "1" IDCard
+@enduml

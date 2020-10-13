@@ -1,0 +1,39 @@
+@startuml
+interface Command{
+    execute():void
+    undo():void
+}
+
+class NoCommand
+note bottom:表示空命令，对于简化操作，有帮助，可以省去对空的判断
+NoCommand ..|> Command
+class OpenLightCommand{
+
+}
+OpenLightCommand ..|> Command
+
+class CloseLightCommand{
+
+}
+CloseLightCommand ..|> Command
+
+class LightReceiver{
+    open():void
+    close():void
+}
+LightReceiver --o OpenLightCommand
+LightReceiver --o CloseLightCommand
+
+class RemoteController{
+    openCommands:Command[]
+    closeCommands:Command[]
+}
+
+Command --o RemoteController
+
+class Client
+Client ..> RemoteController
+Client ..> OpenLightCommand
+Client ..> CloseLightCommand
+Client ..> LightReceiver
+@enduml

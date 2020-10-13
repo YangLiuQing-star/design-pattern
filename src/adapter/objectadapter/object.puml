@@ -1,0 +1,30 @@
+@startuml
+title 对象适配器
+class Voltage220V{
+    output220V():void
+}
+
+interface IVoltage5V{
+    output5V():void
+}
+
+class VoltageAdapter{
+    private Voltage220V voltage220V;
+    VoltageAdapter(Voltage220V voltage220V):void
+}
+
+Voltage220V  --o VoltageAdapter
+VoltageAdapter ..|> IVoltage5V
+
+class Phone{
+    charging(IVoltage5V iVoltage5V):void
+}
+
+Phone ..> IVoltage5V
+
+class Client
+Client ..> Phone
+Client ..> VoltageAdapter
+Client ..> Voltage220V
+
+@enduml

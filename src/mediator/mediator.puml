@@ -1,0 +1,27 @@
+@startuml
+
+abstract class Mediator
+
+class ConcreteMediator{
+    colleagues:HashMap
+}
+note bottom:具体的中介类，管理所有的同事子类，完成相应的操作和任务
+
+ConcreteMediator --|> Mediator
+
+abstract class Colleague
+class ConcreteColleague
+
+class ConcreteColleague2
+ConcreteColleague --|> Colleague
+ConcreteColleague2 --|> Colleague
+ConcreteColleague ..> Mediator
+ConcreteColleague2 ..> Mediator
+Mediator -- Colleague
+
+Colleague --o ConcreteMediator
+
+class Client
+Client ..> Mediator
+Client ..> Colleague
+@enduml

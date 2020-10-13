@@ -1,0 +1,35 @@
+@startuml
+
+abstract class Action
+
+class Success
+
+class Fail
+
+Success --|> Action
+Fail --|> Action
+
+Abstract class Person{
+    accept(action Action):void
+}
+
+class Man
+class Woman
+Man --|> Person
+Woman --|> Person
+
+Action -- Person
+
+class ObjectStructure{
+    elements Person
+}
+
+Person --o ObjectStructure
+
+class Wait
+
+Wait --|> Action
+class Client
+Client ..> Action
+Client ..> ObjectStructure
+@enduml

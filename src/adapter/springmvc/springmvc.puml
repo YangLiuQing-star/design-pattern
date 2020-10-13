@@ -1,0 +1,23 @@
+@startuml
+
+
+interface Controller
+interface HandleAdapter
+class HttpController
+class SimpleController
+class AnnotationController
+
+HttpController ..|> Controller
+SimpleController ..|> Controller
+AnnotationController ..|> Controller
+HandleAdapter ..> HttpController
+SimpleHandlerAdapter ..>SimpleController
+AnnotationHandlerAdapter..>AnnotationController
+
+AnnotationHandlerAdapter ..|> HandleAdapter
+HttpHandlerAdapter ..|> HandleAdapter
+SimpleHandlerAdapter ..|> HandleAdapter
+class DispatchServlet
+HandleAdapter --o DispatchServlet
+DispatchServlet ..> Controller
+@enduml

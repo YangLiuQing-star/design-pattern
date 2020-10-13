@@ -1,0 +1,15 @@
+@startuml
+title:组合关系
+class Monitor
+class Mouse
+class Computer{
+    monitor : Monitor
+    mouse : Mouse
+
+    setMouse(Mouse mouse):void
+    setMonitor(Monitor monitor):void
+}
+
+Computer *-- Mouse
+Computer *-- Monitor
+@enduml
